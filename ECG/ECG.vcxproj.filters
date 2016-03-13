@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{713d5c42-9217-4fb9-91f5-cb28aefbcd2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileLoader">
+      <UniqueIdentifier>{c0623141-5bc3-4a3b-bc62-f8741818ab84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\EcgAnalysisLib">
+      <UniqueIdentifier>{633af7c3-c352-440d-bfc8-3797d0674a3f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLoader.h">
+      <Filter>src\FileLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\cwt.h">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\ecgannotation.h">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\ecgdenoise.h">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\fwt.h">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\lib.h">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClInclude>
+    <ClInclude Include="Lib\signal.h">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ECG.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="FileLoader.cpp">
+      <Filter>src\FileLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\cwt.cpp">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\ecgannotation.cpp">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\ecgdenoise.cpp">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\fwt.cpp">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\signal.cpp">
+      <Filter>src\EcgAnalysisLib</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
