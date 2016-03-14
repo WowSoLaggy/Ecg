@@ -1,12 +1,12 @@
 #include "stdafx.h"
 
-#include "FileLoader.h"
+#include "FileHandler.h"
 #include "ecgannotation.h"
 
 
+// Prints help if the input is invalid
 void PrintUsage()
 {
-	// Print help if the input is invalid
 	std::cout << "Usage:" << std::endl;
 	std::cout << "ECG.exe datafile.txt" << std::endl;
 }
@@ -14,18 +14,19 @@ void PrintUsage()
 
 int main(int argc, char *argv[])
 {
-	// Check the input
+	// Check the input args
 
 	if (argc != 2)
 	{
+		// Argument count mismatch
 		PrintUsage();
 		return 0;
 	}
 
-	// Check if the input file is valid
+	// Check if the input file name is valid
 
 	std::string dataFileName = std::string(argv[1]);
-	if (!FileLoader::CheckIfFileExists(dataFileName))
+	if (!FileHandler::CheckIfFileExists(dataFileName))
 	{
 		std::cout << "Can't find input file." << std::endl;
 		return 0;
@@ -33,12 +34,12 @@ int main(int argc, char *argv[])
 
 	// Load data and params
 
-	int sr = 100;	// TODO: this should be loaded from the file (want to believe that it is frequency)
+	int sr = 100;	// TODO: this should be loaded from the file (want to believe that it is frequency, but not sure)
 
 	std::vector<double> magnitudes;
-	magnitudes = FileLoader::LoadDataFromFile(dataFileName);
+	magnitudes = FileHandler::LoadDataFromFile(dataFileName);
 
-	// Process data
+	// Process data (algorithm and all classes are taken "as is" from the original application)
 
 	EcgAnnotation ann;
 	int** qrsAnn = ann.GetQRS(magnitudes.data(), magnitudes.size(), sr, L"filters");
@@ -69,8 +70,8 @@ int main(int argc, char *argv[])
 	// Save to the .hrv file
 
 	std::string hrvFileName;
-	hrvFileName = FileLoader::GetHrvFileName(dataFileName);
-	FileLoader::SaveDataToFile(hrvFileName, rrs);
+	hrvFileName = FileHandler::GetHrvFileName(dataFileName);
+	FileHandler::SaveDataToFile(hrvFileName, rrs);
 
     return 0;
 }

@@ -1,14 +1,19 @@
 #include "stdafx.h"
-#include "FileLoader.h"
+#include "FileHandler.h"
 
 
-bool FileLoader::CheckIfFileExists(std::string pFileName)
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+// See the FileHandler.h header file for functions' descriptions
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+bool FileHandler::CheckIfFileExists(std::string pFileName)
 {
 	struct stat buffer;
 	return (stat(pFileName.c_str(), &buffer) == 0);
 }
 
-std::vector<double> FileLoader::LoadDataFromFile(std::string pFileName)
+std::vector<double> FileHandler::LoadDataFromFile(std::string pFileName)
 {
 	std::vector<double> values;
 
@@ -24,14 +29,14 @@ std::vector<double> FileLoader::LoadDataFromFile(std::string pFileName)
 	return values;
 }
 
-void FileLoader::SaveDataToFile(std::string pFileName, const std::vector<double> &pData)
+void FileHandler::SaveDataToFile(std::string pFileName, const std::vector<double> &pData)
 {
 	std::ofstream file(pFileName);
 	for (unsigned int i = 0; i < pData.size(); ++i)
 		file << pData[i] << std::endl;
 }
 
-std::string FileLoader::GetHrvFileName(std::string pDataFileName)
+std::string FileHandler::GetHrvFileName(std::string pDataFileName)
 {
 	for (unsigned int i = pDataFileName.size() - 1; i >= 0; --i)
 	{
